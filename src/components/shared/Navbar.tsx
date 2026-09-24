@@ -5,7 +5,7 @@ import logo from '@/assets/logo.png';
 
 const Navbar = () => {
     return (
-        <div className="border-b border-[#1a1b1f] sticky top-0 z-50 bg-[#0b0c0e]">
+        <div className="border-b border-gray-700 sticky top-0 z-50 bg-[#0b0c0e] h-20 ">
 
             <nav className="flex justify-between items-center px-4 sm:px-6 py-3">
 
