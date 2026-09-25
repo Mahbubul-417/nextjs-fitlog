@@ -4,9 +4,9 @@ import banner from '@/assets/banner.png';
 
 const Banner = () => {
     return (
-        <section className="mx-4 mt-7 rounded-lg border border-[#24262d] bg-[#15171c] px-6 py-10 sm:px-10">
+        <section className="mx-4 mt-7 rounded-[20px] border border-[#24262d] bg-[#15171c] px-6 py-10 sm:px-10  ">
 
-            <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
+            <div className="flex flex-col items-center justify-between gap-8 md:flex-row ">
 
                
                 <div className="max-w-xl">

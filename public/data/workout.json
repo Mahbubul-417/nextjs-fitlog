@@ -1,0 +1,256 @@
+{
+  "workouts": [
+    {
+      "id": 1,
+      "slug": "barbell-bench-press",
+      "name": "BARBELL BENCH PRESS",
+      "categories": ["Chest", "Arms"],
+      "equipment": ["Barbell", "Bench"],
+      "difficulty": "Intermediate",
+      "sets": 4,
+      "reps": "6-8",
+      "duration": 25,
+      "calories": 180,
+      "rating": 4.8,
+      "image": "/images/workouts/bench-press.png",
+      "description": "A compound press that builds chest thickness, triceps, and pressing power from a stable bench.",
+      "instructions": [
+        "Lie flat on the bench with your eyes directly under the bar.",
+        "Grip the bar slightly wider than shoulder width.",
+        "Lower the bar toward the middle of your chest with control.",
+        "Press the bar upward until your arms are extended."
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "incline-dumbbell-press",
+      "name": "INCLINE DUMBBELL PRESS",
+      "categories": ["Chest", "Shoulders"],
+      "equipment": ["Dumbbells", "Incline Bench"],
+      "difficulty": "Intermediate",
+      "sets": 4,
+      "reps": "8-10",
+      "duration": 22,
+      "calories": 165,
+      "rating": 4.7,
+      "image": "/images/workouts/incline-dumbbell-press.png",
+      "description": "An upper-chest focused pressing movement using dumbbells.",
+      "instructions": [
+        "Set the bench to a moderate incline.",
+        "Hold a dumbbell in each hand at chest level.",
+        "Press both dumbbells upward.",
+        "Lower them slowly back to the starting position."
+      ]
+    },
+    {
+      "id": 3,
+      "slug": "barbell-back-squat",
+      "name": "BARBELL BACK SQUAT",
+      "categories": ["Legs", "Glutes"],
+      "equipment": ["Barbell", "Squat Rack"],
+      "difficulty": "Intermediate",
+      "sets": 4,
+      "reps": "6-8",
+      "duration": 28,
+      "calories": 230,
+      "rating": 4.9,
+      "image": "/images/workouts/back-squat.png",
+      "description": "A foundational lower-body movement that develops the quads and glutes.",
+      "instructions": [
+        "Position the bar across your upper back.",
+        "Stand with your feet around shoulder width apart.",
+        "Bend your knees and hips while keeping your chest controlled.",
+        "Drive through your feet to return to standing."
+      ]
+    },
+    {
+      "id": 4,
+      "slug": "romanian-deadlift",
+      "name": "ROMANIAN DEADLIFT",
+      "categories": ["Legs", "Back"],
+      "equipment": ["Barbell"],
+      "difficulty": "Intermediate",
+      "sets": 4,
+      "reps": "8-10",
+      "duration": 24,
+      "calories": 210,
+      "rating": 4.8,
+      "image": "/images/workouts/romanian-deadlift.png",
+      "description": "A hip-hinge movement targeting the hamstrings, glutes, and posterior chain.",
+      "instructions": [
+        "Hold the barbell in front of your thighs.",
+        "Push your hips backward while keeping your back neutral.",
+        "Lower the bar along your legs.",
+        "Drive your hips forward to return to standing."
+      ]
+    },
+    {
+      "id": 5,
+      "slug": "pull-ups",
+      "name": "PULL-UPS",
+      "categories": ["Back", "Arms"],
+      "equipment": ["Pull-up Bar"],
+      "difficulty": "Advanced",
+      "sets": 4,
+      "reps": "6-10",
+      "duration": 20,
+      "calories": 150,
+      "rating": 4.8,
+      "image": "/images/workouts/pull-ups.png",
+      "description": "A bodyweight pulling exercise that develops the lats and biceps.",
+      "instructions": [
+        "Grip the pull-up bar slightly wider than shoulder width.",
+        "Hang with your arms fully extended.",
+        "Pull your chest toward the bar.",
+        "Lower yourself under control."
+      ]
+    },
+    {
+      "id": 6,
+      "slug": "seated-cable-row",
+      "name": "SEATED CABLE ROW",
+      "categories": ["Back", "Arms"],
+      "equipment": ["Cable Machine", "Handle"],
+      "difficulty": "Beginner",
+      "sets": 4,
+      "reps": "10-12",
+      "duration": 18,
+      "calories": 135,
+      "rating": 4.6,
+      "image": "/images/workouts/seated-cable-row.png",
+      "description": "A horizontal pulling movement for building the middle and upper back.",
+      "instructions": [
+        "Sit upright with your feet supported.",
+        "Grip the cable handle with both hands.",
+        "Pull the handle toward your lower ribs.",
+        "Slowly extend your arms."
+      ]
+    },
+    {
+      "id": 7,
+      "slug": "seated-dumbbell-shoulder-press",
+      "name": "SEATED DUMBBELL SHOULDER PRESS",
+      "categories": ["Shoulders", "Arms"],
+      "equipment": ["Dumbbells", "Bench"],
+      "difficulty": "Intermediate",
+      "sets": 4,
+      "reps": "8-10",
+      "duration": 20,
+      "calories": 140,
+      "rating": 4.7,
+      "image": "/images/workouts/shoulder-press.png",
+      "description": "A seated overhead pressing exercise that develops the shoulders and triceps.",
+      "instructions": [
+        "Sit upright with a dumbbell in each hand.",
+        "Start with the dumbbells near shoulder height.",
+        "Press both dumbbells overhead.",
+        "Lower them slowly."
+      ]
+    },
+    {
+      "id": 8,
+      "slug": "barbell-bicep-curl",
+      "name": "BARBELL BICEP CURL",
+      "categories": ["Arms"],
+      "equipment": ["Barbell"],
+      "difficulty": "Beginner",
+      "sets": 3,
+      "reps": "10-12",
+      "duration": 15,
+      "calories": 100,
+      "rating": 4.5,
+      "image": "/images/workouts/bicep-curl.png",
+      "description": "A classic isolation exercise for developing the biceps.",
+      "instructions": [
+        "Stand upright holding the barbell.",
+        "Keep your elbows close to your body.",
+        "Curl the bar toward your shoulders.",
+        "Lower the bar slowly."
+      ]
+    },
+    {
+      "id": 9,
+      "slug": "cable-tricep-pushdown",
+      "name": "CABLE TRICEP PUSHDOWN",
+      "categories": ["Arms", "Chest"],
+      "equipment": ["Cable Machine", "Rope"],
+      "difficulty": "Beginner",
+      "sets": 3,
+      "reps": "10-12",
+      "duration": 15,
+      "calories": 95,
+      "rating": 4.6,
+      "image": "/images/workouts/tricep-pushdown.png",
+      "description": "A cable isolation movement designed to strengthen the triceps.",
+      "instructions": [
+        "Stand facing the cable machine.",
+        "Grip the rope with both hands.",
+        "Keep your elbows close to your sides.",
+        "Push the rope downward and slowly return."
+      ]
+    },
+    {
+      "id": 10,
+      "slug": "walking-lunges",
+      "name": "WALKING LUNGES",
+      "categories": ["Legs", "Glutes"],
+      "equipment": ["Dumbbells"],
+      "difficulty": "Intermediate",
+      "sets": 3,
+      "reps": "10 each leg",
+      "duration": 22,
+      "calories": 190,
+      "rating": 4.7,
+      "image": "/images/workouts/walking-lunges.png",
+      "description": "A dynamic unilateral leg exercise that targets the quads and glutes.",
+      "instructions": [
+        "Stand tall with dumbbells at your sides.",
+        "Step forward with one leg.",
+        "Lower your hips until both knees are bent.",
+        "Push through the front foot and step forward."
+      ]
+    },
+    {
+      "id": 11,
+      "slug": "russian-twist",
+      "name": "RUSSIAN TWIST",
+      "categories": ["Core", "Abs"],
+      "equipment": ["Medicine Ball"],
+      "difficulty": "Intermediate",
+      "sets": 3,
+      "reps": "12-16 each side",
+      "duration": 16,
+      "calories": 120,
+      "rating": 4.6,
+      "image": "/images/workouts/russian-twist.png",
+      "description": "A rotational core exercise that challenges the abdominals and obliques.",
+      "instructions": [
+        "Sit with your knees bent.",
+        "Lean your torso back while keeping your core engaged.",
+        "Hold the medicine ball in front of you.",
+        "Rotate your torso from side to side."
+      ]
+    },
+    {
+      "id": 12,
+      "slug": "forearm-plank",
+      "name": "FOREARM PLANK",
+      "categories": ["Core", "Abs"],
+      "equipment": ["Mat"],
+      "difficulty": "Beginner",
+      "sets": 3,
+      "reps": "30-60 sec",
+      "duration": 12,
+      "calories": 80,
+      "rating": 4.5,
+      "image": "/images/workouts/forearm-plank.png",
+      "description": "An isometric exercise that strengthens the core and improves trunk stability.",
+      "instructions": [
+        "Place your forearms on the mat.",
+        "Extend your legs behind you.",
+        "Keep your body in a straight line.",
+        "Brace your core and hold."
+      ]
+    }
+  ]
+}
