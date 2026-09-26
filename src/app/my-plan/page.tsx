@@ -4,16 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 
-type Workout = {
-    id: number;
-    name: string;
-    categories: string[];
-    equipment: string[];
-    duration: number;
-    calories: number;
-    rating: number;
-    image: string;
-};
+import type { Workout } from "@/types/workout";
 
 type SortOption = "duration" | "calories" | "rating";
 
@@ -338,7 +329,6 @@ export default function MyPlanPage() {
                                         className="flex items-center gap-3 rounded-xl border border-zinc-800 bg-[#12151b] p-2.5"
                                     >
 
-                                        {/* Image */}
                                         <div className="h-16 w-20 shrink-0 overflow-hidden rounded-lg bg-zinc-800">
 
                                             {workout.image && (

@@ -2,15 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-type Workout = {
-    id: number;
-    name: string;
-    categories: string[];
-    equipment: string[];
-    duration: number;
-    calories: number;
-    rating: number;
-};
+import type { Workout } from "@/types/workout";
 
 export default function SavedPage() {
     const [workouts, setWorkouts] = useState<Workout[]>([]);

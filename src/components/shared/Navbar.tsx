@@ -40,7 +40,7 @@ const Navbar = () => {
     return (
         <div className="sticky top-0 z-50 h-20 border-b border-gray-700 bg-[#0b0c0e]">
 
-            <nav className="flex items-center justify-between px-4 py-3 sm:px-6">
+            <nav className="flex items-center justify-between px-4 py-3 sm:px-15">
 
                 
                 <Link href="/" className="flex items-center gap-2">

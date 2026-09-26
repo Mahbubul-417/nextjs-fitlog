@@ -1,10 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 import { useRouter } from "next/navigation";
 
-import type { Workout } from "@/types/workout";
+type Workout = {
+    id: number;
+    name: string;
+    muscleGroups: string[];
+    equipment: string;
+    duration: number;
+    caloriesBurned: number;
+    rating: number;
+    difficulty: string;
+    image: string;
+};
 
 export default function Library() {
     const [workouts, setWorkouts] = useState<Workout[]>([]);
@@ -16,7 +25,9 @@ export default function Library() {
     useEffect(() => {
         const fetchWorkouts = async () => {
             try {
-                const response = await fetch("/data/workout.json");
+                const response = await fetch(
+                    "https://api.abcz.workers.dev/api/fitlog"
+                );
 
                 if (!response.ok) {
                     throw new Error("Failed to load workouts");
@@ -24,7 +35,7 @@ export default function Library() {
 
                 const data = await response.json();
 
-                setWorkouts(data.workouts);
+                setWorkouts(data);
             } catch (error) {
                 console.error(error);
                 setError("Failed to load workouts");
@@ -51,14 +62,14 @@ export default function Library() {
                     </p>
                 </div>
 
-                
+             
                 {loading && (
-                    <div className="py-16 text-center text-zinc-500">
-                        Loading workouts...
+                    <div className="flex min-h-[300px] items-center justify-center">
+                        <div className="h-8 w-8 animate-spin rounded-full border-2 border-zinc-700 border-t-[#ccff00]" />
                     </div>
                 )}
 
-              
+                
                 {error && (
                     <div className="py-16 text-center text-red-500">
                         {error}
@@ -75,10 +86,10 @@ export default function Library() {
                                 onClick={() =>
                                     router.push(`/workouts/${workout.id}`)
                                 }
-                                className="group cursor-pointer overflow-hidden rounded-2xl border border-zinc-200 bg-white transition hover:-translate-y-1 hover:shadow-lg"
+                                className="group cursor-pointer overflow-hidden rounded-2xl border border-zinc-200 bg-[#15171c] transition hover:-translate-y-1 hover:shadow-lg"
                             >
 
-                               
+                                
                                 <div className="relative aspect-[4/3] overflow-hidden bg-zinc-100">
 
                                     <img
@@ -89,40 +100,44 @@ export default function Library() {
 
                                 </div>
 
-                                
+                               
                                 <div className="p-5">
 
                                     
                                     <div className="mb-3 flex flex-wrap gap-2">
-                                        {workout.categories.map((category) => (
-                                            <span
-                                                key={category}
-                                                className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-600"
-                                            >
-                                                {category.toUpperCase()}
-                                            </span>
-                                        ))}
+
+                                        {workout.muscleGroups.map(
+                                            (category) => (
+                                                <span
+                                                    key={category}
+                                                    className="rounded-full bg-[#C2F800] px-3 py-1 text-xs font-bold text-zinc-600"
+                                                >
+                                                    {category.toUpperCase()}
+                                                </span>
+                                            )
+                                        )}
+
                                     </div>
 
-                                    
-                                    <h3 className="text-xl font-semibold text-zinc-900">
+                                   
+                                    <h3 className="text-xl font- bold text-white">
                                         {workout.name}
                                     </h3>
 
-                                   
+                                    
                                     <p className="mt-1 text-sm text-zinc-500">
-                                        {workout.equipment.join(", ")}
+                                        {workout.equipment}
                                     </p>
 
-                                  
-                                    <div className="mt-5 grid grid-cols-3 gap-3 border-t border-zinc-100 pt-4">
+                                    
+                                    <div className="mt-5 grid grid-cols-3 gap-3  border-zinc-100 pt-4">
 
                                         <div>
                                             <p className="text-xs text-zinc-400">
                                                 Duration
                                             </p>
 
-                                            <p className="mt-1 text-sm font-medium text-zinc-800">
+                                            <p className="mt-1 text-sm font-medium text-zinc-500">
                                                 {workout.duration} min
                                             </p>
                                         </div>
@@ -132,8 +147,8 @@ export default function Library() {
                                                 Calories
                                             </p>
 
-                                            <p className="mt-1 text-sm font-medium text-zinc-800">
-                                                {workout.calories} kcal
+                                            <p className="mt-1 text-sm font-medium text-zinc-500">
+                                                {workout.caloriesBurned} kcal
                                             </p>
                                         </div>
 
@@ -142,7 +157,7 @@ export default function Library() {
                                                 Rating
                                             </p>
 
-                                            <p className="mt-1 text-sm font-medium text-zinc-800">
+                                            <p className="mt-1 text-sm font-medium text-zinc-400">
                                                 ★ {workout.rating}
                                             </p>
                                         </div>
