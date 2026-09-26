@@ -4,7 +4,16 @@ import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 
-import type { Workout } from "@/types/workout";
+type Workout = {
+    id: number;
+    name: string;
+    muscleGroups: string[];
+    equipment: string;
+    duration: number;
+    caloriesBurned: number;
+    rating: number;
+    image: string;
+};
 
 type SortOption = "duration" | "calories" | "rating";
 
@@ -12,9 +21,7 @@ export default function MyPlanPage() {
     const router = useRouter();
     const searchParams = useSearchParams();
 
-    const [activeTab, setActiveTab] = useState<"plan" | "saved">(
-        searchParams.get("saved") === "true" ? "saved" : "plan"
-    );
+    const [activeTab, setActiveTab] = useState<"plan" | "saved">("plan");
 
     const isSavedView = searchParams.get("saved") === "true";
 
@@ -32,7 +39,14 @@ export default function MyPlanPage() {
     useEffect(() => {
         const loadData = async () => {
             try {
-                const response = await fetch("/data/workout.json");
+                const response = await fetch(
+                    "https://api.abcz.workers.dev/api/fitlog"
+                );
+
+                if (!response.ok) {
+                    throw new Error("Failed to load workouts");
+                }
+
                 const data = await response.json();
 
                 const plan = JSON.parse(
@@ -52,13 +66,13 @@ export default function MyPlanPage() {
                 setCompletedIds(completed);
 
                 setWorkouts(
-                    data.workouts.filter((workout: Workout) =>
+                    data.filter((workout: Workout) =>
                         plan.includes(workout.id)
                     )
                 );
 
                 setSavedWorkouts(
-                    data.workouts.filter((workout: Workout) =>
+                    data.filter((workout: Workout) =>
                         saved.includes(workout.id)
                     )
                 );
@@ -81,7 +95,7 @@ export default function MyPlanPage() {
         }
 
         if (sortBy === "calories") {
-            return a.calories - b.calories;
+            return a.caloriesBurned - b.caloriesBurned;
         }
 
         return b.rating - a.rating;
@@ -93,7 +107,7 @@ export default function MyPlanPage() {
     );
 
     const totalCalories = workouts.reduce(
-        (total, workout) => total + workout.calories,
+        (total, workout) => total + workout.caloriesBurned,
         0
     );
 
@@ -108,7 +122,6 @@ export default function MyPlanPage() {
             "fitlog-completed",
             JSON.stringify(updatedCompleted)
         );
-        
 
         toast.success("Workout marked as done!");
     };
@@ -128,6 +141,7 @@ export default function MyPlanPage() {
             "fitlog-plan",
             JSON.stringify(updatedPlan)
         );
+
         window.dispatchEvent(new Event("fitlog-storage-update"));
 
         toast.success("Workout removed from your plan!");
@@ -148,6 +162,7 @@ export default function MyPlanPage() {
             "fitlog-saved",
             JSON.stringify(updatedSaved)
         );
+
         window.dispatchEvent(new Event("fitlog-storage-update"));
 
         toast.success("Workout removed from saved!");
@@ -184,7 +199,7 @@ export default function MyPlanPage() {
 
             <div className="mx-auto max-w-7xl">
 
-               
+
                 <div>
                     <h1 className="text-3xl font-bold tracking-tight">
                         MY PLAN
@@ -195,7 +210,7 @@ export default function MyPlanPage() {
                     </p>
                 </div>
 
-               
+
                 <div className="mt-6 grid grid-cols-3 rounded-xl border border-zinc-800 bg-[#12151b]">
 
                     <div className="border-r border-zinc-800 px-4 py-4">
@@ -230,7 +245,7 @@ export default function MyPlanPage() {
 
                 </div>
 
-             
+
                 <div className="mt-4 flex items-center justify-between">
 
                     <div className="flex rounded-lg border border-zinc-800 bg-[#12151b] p-1">
@@ -291,7 +306,7 @@ export default function MyPlanPage() {
 
                 </div>
 
-              
+
                 <div className="mt-5">
 
                     {sortedWorkouts.length === 0 ? (
@@ -329,6 +344,7 @@ export default function MyPlanPage() {
                                         className="flex items-center gap-3 rounded-xl border border-zinc-800 bg-[#12151b] p-2.5"
                                     >
 
+
                                         <div className="h-16 w-20 shrink-0 overflow-hidden rounded-lg bg-zinc-800">
 
                                             {workout.image && (
@@ -345,6 +361,7 @@ export default function MyPlanPage() {
 
                                         </div>
 
+
                                         <div className="min-w-0 flex-1">
 
                                             <h3 className="truncate text-[11px] font-bold">
@@ -352,7 +369,7 @@ export default function MyPlanPage() {
                                             </h3>
 
                                             <p className="text-[8px] text-zinc-500">
-                                                {workout.equipment.join(", ")}
+                                                {workout.equipment}
                                             </p>
 
                                             <div className="mt-1 flex gap-2 text-[8px] text-zinc-400">
@@ -362,7 +379,7 @@ export default function MyPlanPage() {
                                                 </span>
 
                                                 <span>
-                                                    🔥 {workout.calories} kcal
+                                                    🔥 {workout.caloriesBurned} kcal
                                                 </span>
 
                                                 <span className="text-[#ccff00]">
@@ -373,7 +390,7 @@ export default function MyPlanPage() {
 
                                         </div>
 
-                                        
+
                                         <div className="flex shrink-0 items-center gap-2">
 
                                             <button
@@ -408,8 +425,12 @@ export default function MyPlanPage() {
                                                 type="button"
                                                 onClick={() =>
                                                     currentTab === "plan"
-                                                        ? removeFromPlan(workout.id)
-                                                        : removeFromSaved(workout.id)
+                                                        ? removeFromPlan(
+                                                            workout.id
+                                                        )
+                                                        : removeFromSaved(
+                                                            workout.id
+                                                        )
                                                 }
                                                 className="px-1 text-xs text-zinc-500 transition hover:text-white"
                                             >

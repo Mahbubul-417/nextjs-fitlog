@@ -27,7 +27,7 @@ const Banner = () => {
                         watch the week&apos;s work add up.
                     </p>
 
-                    <button className="mt-5 rounded-md bg-[#ccff00] px-5 py-2.5 text-xs font-bold text-black">
+                    <button className="mt-5 rounded-md bg-[#ccff00] px-5 py-2.5 text-xs font-bold text-black cursor-pointer">
                         BROWSE WORKOUTS
                     </button>
 
